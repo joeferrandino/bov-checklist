@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>BOV Options — NPCG</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @page {
+    size: letter;
+    margin: 0;
+  }
+
+  :root {
+    --carbon-blue: #3f4753;
+    --stone-beige: #B1A8A0;
+    --graphite: #281B12;
+    --terracotta: #B55D37;
+    --golden-orange: #F8971D;
+    --linen: #F6F2EE;
+    --black: #000000;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Montserrat', Arial, sans-serif;
+    color: var(--black);
+    background: #ffffff;
+  }
+
+  .page {
+    width: 8.5in;
+    height: 11in;
+    padding: 0.5in 0.6in;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+  }
+
+  /* Header */
+  .header {
+    border-bottom: 2px solid var(--black);
+    padding-bottom: 14px;
+    margin-bottom: 22px;
+    position: relative;
+  }
+
+  .header::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 90px;
+    height: 2px;
+    background: var(--golden-orange);
+  }
+
+  .badge {
+    display: inline-block;
+    background: var(--golden-orange);
+    color: var(--black);
+    font-size: 7pt;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    margin-bottom: 12px;
+    border-radius: 2px;
+  }
+
+  h1 {
+    font-size: 22pt;
+    font-weight: 300;
+    color: var(--black);
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+  }
+
+  .subtitle {
+    font-size: 9pt;
+    color: var(--carbon-blue);
+    margin-top: 8px;
+    font-weight: 400;
+  }
+
+  /* Cards container */
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    flex: 1;
+  }
+
+  .card {
+    border: 1px solid var(--stone-beige);
+    padding: 18px 18px;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    position: relative;
+  }
+
+  .card-a {
+    border-top: 4px solid var(--golden-orange);
+  }
+
+  .card-b {
+    border-top: 4px solid var(--terracotta);
+  }
+
+  .card-tag {
+    font-size: 7pt;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 4px 10px;
+    display: inline-block;
+    align-self: flex-start;
+    margin-bottom: 12px;
+  }
+
+  .card-a .card-tag {
+    background: var(--carbon-blue);
+    color: #ffffff;
+  }
+
+  .card-b .card-tag {
+    background: var(--terracotta);
+    color: #ffffff;
+  }
+
+  .card-title {
+    font-size: 15pt;
+    font-weight: 500;
+    color: var(--black);
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+
+  .card-tagline {
+    font-size: 8pt;
+    color: var(--carbon-blue);
+    font-weight: 400;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--stone-beige);
+  }
+
+  .section-label {
+    font-size: 7.5pt;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 7px;
+    margin-top: 12px;
+  }
+
+  .section-label:first-of-type {
+    margin-top: 0;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  ul li {
+    font-size: 8.5pt;
+    line-height: 1.35;
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 4px;
+    color: var(--black);
+    font-weight: 400;
+  }
+
+  ul li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--golden-orange);
+    font-weight: 700;
+  }
+
+  ul.checklist li {
+    padding-left: 22px;
+    margin-bottom: 5px;
+    line-height: 1.35;
+  }
+
+  ul.checklist li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    width: 11px;
+    height: 11px;
+    border: 1.5px solid var(--black);
+    background: #ffffff;
+    border-radius: 1px;
+    font-weight: normal;
+  }
+
+  .card-b ul.checklist li::before {
+    border-color: var(--terracotta);
+  }
+
+  .tradeoff {
+    margin-top: 14px;
+    padding: 10px 12px;
+    background: var(--linen);
+    border-left: 3px solid var(--golden-orange);
+    font-size: 8pt;
+    line-height: 1.45;
+    color: var(--black);
+    font-weight: 400;
+  }
+
+  .card-b .tradeoff {
+    border-left-color: var(--terracotta);
+  }
+
+  .tradeoff strong {
+    color: var(--black);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 7pt;
+    display: block;
+    margin-bottom: 3px;
+  }
+
+  /* Info strip — three columns */
+  .info-strip {
+    margin-top: 18px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--stone-beige);
+    background: var(--linen);
+  }
+
+  .info-block {
+    padding: 12px 16px;
+    border-right: 1px solid var(--stone-beige);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .info-block:last-child {
+    border-right: none;
+  }
+
+  .info-label {
+    font-size: 7pt;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--terracotta);
+    margin-bottom: 4px;
+  }
+
+  .info-name {
+    font-size: 10pt;
+    font-weight: 700;
+    color: var(--black);
+    letter-spacing: 0.3px;
+  }
+
+  .info-text {
+    font-size: 8pt;
+    line-height: 1.5;
+    color: var(--black);
+    font-weight: 400;
+  }
+
+  .info-text strong {
+    color: var(--terracotta);
+    font-weight: 600;
+    word-break: break-all;
+  }
+
+  ul.checklist li strong {
+    color: var(--black);
+    font-weight: 400;
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: 14px;
+    padding-top: 10px;
+    border-top: 1px solid var(--stone-beige);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-left {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer-mark {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .footer-monogram {
+    font-size: 12pt;
+    color: var(--golden-orange);
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    line-height: 1;
+    border-right: 1.5px solid var(--stone-beige);
+    padding-right: 10px;
+  }
+
+  .footer-brand {
+    font-size: 9pt;
+    color: var(--black);
+    line-height: 1.2;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+  }
+
+  .footer-tagline {
+    font-size: 7pt;
+    color: var(--carbon-blue);
+    margin-top: 5px;
+    letter-spacing: 0.5px;
+    font-weight: 400;
+  }
+
+  .footer-right {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+  }
+
+  .footer-cta {
+    color: var(--black);
+    font-weight: 500;
+    font-size: 8pt;
+  }
+
+  .footer-web {
+    color: var(--terracotta);
+    font-size: 7.5pt;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <div class="header">
+      <span class="badge">Broker Opinion of Value</span>
+      <h1>Two Ways to Value Your Property</h1>
+      <div class="subtitle">Choose the level of analysis that fits your timeline and goals.</div>
+    </div>
+
+    <div class="cards">
+
+      <div class="card card-a">
+        <span class="card-tag">Option A</span>
+        <div class="card-title">Comprehensive BOV</div>
+        <div class="card-tagline">The most accurate and strategic valuation available.</div>
+
+        <div class="section-label">What I'll Need From You</div>
+        <ul class="checklist">
+          <li>Current rent roll and full copies of leases (or detailed lease abstracts)</li>
+          <li>Trailing 12-month operating expense statement (P&amp;L)</li>
+          <li>Any pending lease negotiations, renewals, or known tenant issues</li>
+          <li>Major capital improvements completed in the last 5 years (roof, HVAC, paving, etc.)</li>
+        </ul>
+
+        <div class="section-label">The Benefits</div>
+        <ul>
+          <li>Stronger strategic guidance on hold vs. sell, timing, and pricing</li>
+          <li>Most accurate, defensible valuation</li>
+          <li>Granular lease analysis</li>
+          <li>True NOI based on actual recoveries vs. expenses</li>
+          <li>Helps uncover and unlock hidden value</li>
+          <li>Surfaces potential risks buyers will flag</li>
+          <li>Underwriting that holds up to buyer scrutiny</li>
+        </ul>
+
+        <div class="tradeoff">
+          <strong>Timeline</strong>
+          Typically 5–9 business days, depending on full submission of documents.
+        </div>
+      </div>
+
+      <div class="card card-b">
+        <span class="card-tag">Option B</span>
+        <div class="card-title">Express BOV</div>
+        <div class="card-tagline">A quick value estimate based on high-level information.</div>
+
+        <div class="section-label">What I'll Need From You</div>
+        <ul class="checklist">
+          <li><strong>Tenant list:</strong> name of tenant, square footage of space, monthly rent, and when their lease started and ends</li>
+          <li><strong>Vacancy and renewals:</strong> note any vacant spaces, any tenants on month-to-month, and any you know are planning to leave or stay</li>
+          <li><strong>Property expenses:</strong> annual costs for real estate tax, property insurance, electric, heating fuel, water &amp; sewer, trash removal, repairs &amp; maintenance, landscaping, and snow removal</li>
+          <li><strong>Other recurring costs:</strong> property management, payroll, contract services, professional and legal, general and administrative, and leasing and advertising</li>
+          <li><strong>Tenant Paid vs Owner Paid:</strong> note which utilities and expenses are paid by the tenant, paid by you, or shared between you</li>
+          <li><strong>Major capital improvements</strong> completed in the last 5 years (roof, HVAC, paving, etc.)</li>
+        </ul>
+
+        <div class="section-label">The Benefits</div>
+        <ul>
+          <li>Requires only basic information to get started</li>
+          <li>Gives you a ballpark value for early decisions</li>
+          <li>Useful for testing the waters before a full process</li>
+          <li>Helpful for internal planning or initial conversations</li>
+        </ul>
+
+        <div class="tradeoff">
+          <strong>Timeline</strong>
+          Typically 2–4 business days.
+        </div>
+      </div>
+
+    </div>
+
+    <div class="info-strip">
+      <div class="info-block">
+        <div class="info-label">Submit Documents</div>
+        <div class="info-text">Email all information to:<br><strong>jferrandino@northeastpcg.com</strong></div>
+      </div>
+      <div class="info-block">
+        <div class="info-label">Confidential</div>
+        <div class="info-text">All information shared with NPCG is kept strictly confidential and handled securely.</div>
+      </div>
+      <div class="info-block">
+        <div class="info-label">Complimentary</div>
+        <div class="info-text">No cost or obligation to sell. Provided as a service to property owners.</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-left">
+        <div class="footer-mark">
+          <span class="footer-monogram">NPCG</span>
+          <span class="footer-brand">Northeast Private Client Group</span>
+        </div>
+        <span class="footer-tagline">Building Relationships That Drive Results</span>
+      </div>
+      <div class="footer-right">
+        <span class="footer-web">northeastpcg.com</span>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
