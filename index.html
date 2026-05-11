@@ -6,7 +6,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   @page {
-    size: letter;
+    size: 8.5in 11in;
     margin: 0;
   }
 
@@ -45,9 +45,12 @@
   }
 
   @media print {
-    body {
-      background: #ffffff;
+    html, body {
+      width: 8.5in;
+      height: 11in;
+      margin: 0;
       padding: 0;
+      background: #ffffff;
       display: block;
     }
     .page {
@@ -55,6 +58,24 @@
       width: 8.5in;
       height: 11in;
       padding: 1in;
+      margin: 0;
+    }
+    .card {
+      padding: 10px;
+    }
+    .cards {
+      gap: 10px;
+    }
+    ul li {
+      font-size: 7.5pt;
+      letter-spacing: -0.1px;
+    }
+    ul.checklist li {
+      padding-left: 18px;
+    }
+    ul.checklist li::before {
+      width: 9px;
+      height: 9px;
     }
     .toolbar {
       display: none !important;
