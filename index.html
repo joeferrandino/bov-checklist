@@ -25,23 +25,43 @@
   body {
     font-family: 'Montserrat', Arial, sans-serif;
     color: var(--black);
-    background: #ffffff;
+    background: #c8c8c8;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    min-height: 100vh;
   }
 
   .page {
     width: 8.5in;
     height: 11in;
-    padding: 0.5in 0.6in;
+    padding: 1in;
     display: flex;
     flex-direction: column;
     background: #ffffff;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  @media print {
+    body {
+      background: #ffffff;
+      padding: 0;
+      display: block;
+    }
+    .page {
+      box-shadow: none;
+      width: 100%;
+      height: 100%;
+    }
   }
 
   /* Header */
   .header {
     border-bottom: 2px solid var(--black);
-    padding-bottom: 14px;
-    margin-bottom: 22px;
+    padding-bottom: 10px;
+    margin-bottom: 14px;
     position: relative;
   }
 
@@ -64,13 +84,13 @@
     letter-spacing: 1.2px;
     text-transform: uppercase;
     padding: 4px 10px;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     border-radius: 2px;
   }
 
   h1 {
     font-size: 22pt;
-    font-weight: 300;
+    font-weight: 500;
     color: var(--black);
     line-height: 1.15;
     letter-spacing: -0.5px;
@@ -78,8 +98,8 @@
 
   .subtitle {
     font-size: 9pt;
-    color: var(--carbon-blue);
-    margin-top: 8px;
+    color: var(--black);
+    margin-top: 5px;
     font-weight: 400;
   }
 
@@ -87,17 +107,20 @@
   .cards {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 18px;
+    gap: 14px;
     flex: 1;
+    min-height: 0;
   }
 
   .card {
     border: 1px solid var(--stone-beige);
-    padding: 18px 18px;
+    padding: 14px;
     display: flex;
     flex-direction: column;
     background: #ffffff;
     position: relative;
+    min-height: 0;
+    overflow: hidden;
   }
 
   .card-a {
@@ -116,11 +139,11 @@
     padding: 4px 10px;
     display: inline-block;
     align-self: flex-start;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
   }
 
   .card-a .card-tag {
-    background: var(--carbon-blue);
+    background: var(--golden-orange);
     color: #ffffff;
   }
 
@@ -139,10 +162,10 @@
 
   .card-tagline {
     font-size: 8pt;
-    color: var(--carbon-blue);
+    color: var(--black);
     font-weight: 400;
-    margin-bottom: 14px;
-    padding-bottom: 12px;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
     border-bottom: 1px solid var(--stone-beige);
   }
 
@@ -152,8 +175,8 @@
     text-transform: uppercase;
     font-weight: 700;
     color: var(--black);
-    margin-bottom: 7px;
-    margin-top: 12px;
+    margin-bottom: 5px;
+    margin-top: 9px;
   }
 
   .section-label:first-of-type {
@@ -167,10 +190,10 @@
 
   ul li {
     font-size: 8.5pt;
-    line-height: 1.35;
+    line-height: 1.3;
     padding-left: 14px;
     position: relative;
-    margin-bottom: 4px;
+    margin-bottom: 3px;
     color: var(--black);
     font-weight: 400;
   }
@@ -183,10 +206,14 @@
     font-weight: 700;
   }
 
+  .card-b ul li::before {
+    color: var(--terracotta);
+  }
+
   ul.checklist li {
     padding-left: 22px;
-    margin-bottom: 5px;
-    line-height: 1.35;
+    margin-bottom: 3px;
+    line-height: 1.3;
   }
 
   ul.checklist li::before {
@@ -203,16 +230,16 @@
   }
 
   .card-b ul.checklist li::before {
-    border-color: var(--terracotta);
+    border-color: var(--black);
   }
 
   .tradeoff {
-    margin-top: 14px;
-    padding: 10px 12px;
+    margin-top: 9px;
+    padding: 8px 10px;
     background: var(--linen);
     border-left: 3px solid var(--golden-orange);
     font-size: 8pt;
-    line-height: 1.45;
+    line-height: 1.4;
     color: var(--black);
     font-weight: 400;
   }
@@ -233,7 +260,7 @@
 
   /* Info strip — three columns */
   .info-strip {
-    margin-top: 18px;
+    margin-top: 12px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 0;
@@ -242,7 +269,7 @@
   }
 
   .info-block {
-    padding: 12px 16px;
+    padding: 9px 14px;
     border-right: 1px solid var(--stone-beige);
     display: flex;
     flex-direction: column;
@@ -289,8 +316,8 @@
 
   /* Footer */
   .footer {
-    margin-top: 14px;
-    padding-top: 10px;
+    margin-top: 10px;
+    padding-top: 8px;
     border-top: 1px solid var(--stone-beige);
     display: flex;
     justify-content: space-between;
@@ -306,16 +333,6 @@
     display: flex;
     align-items: center;
     gap: 10px;
-  }
-
-  .footer-monogram {
-    font-size: 12pt;
-    color: var(--golden-orange);
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    line-height: 1;
-    border-right: 1.5px solid var(--stone-beige);
-    padding-right: 10px;
   }
 
   .footer-brand {
@@ -349,7 +366,7 @@
   }
 
   .footer-web {
-    color: var(--terracotta);
+    color: var(--black);
     font-size: 7.5pt;
     font-weight: 600;
     letter-spacing: 0.5px;
@@ -359,8 +376,7 @@
 <body>
   <div class="page">
     <div class="header">
-      <span class="badge">Broker Opinion of Value</span>
-      <h1>Two Ways to Value Your Property</h1>
+      <h1>Property Information Checklist: Broker Opinion of Value (BOV)</h1>
       <div class="subtitle">Choose the level of analysis that fits your timeline and goals.</div>
     </div>
 
@@ -369,11 +385,12 @@
       <div class="card card-a">
         <span class="card-tag">Option A</span>
         <div class="card-title">Comprehensive BOV</div>
-        <div class="card-tagline">The most accurate and strategic valuation available.</div>
+        <div class="card-tagline">A thorough valuation analysis derived from actual financial records.</div>
 
-        <div class="section-label">What I'll Need From You</div>
+        <div class="section-label">Information to Submit</div>
         <ul class="checklist">
-          <li>Current rent roll and full copies of leases (or detailed lease abstracts)</li>
+          <li>Current rent roll reflecting all occupied and vacant spaces</li>
+          <li>Full copies of leases (or detailed lease abstracts)</li>
           <li>Trailing 12-month operating expense statement (P&amp;L)</li>
           <li>Any pending lease negotiations, renewals, or known tenant issues</li>
           <li>Major capital improvements completed in the last 5 years (roof, HVAC, paving, etc.)</li>
@@ -381,12 +398,9 @@
 
         <div class="section-label">The Benefits</div>
         <ul>
-          <li>Stronger strategic guidance on hold vs. sell, timing, and pricing</li>
-          <li>Most accurate, defensible valuation</li>
-          <li>Granular lease analysis</li>
-          <li>True NOI based on actual recoveries vs. expenses</li>
-          <li>Helps uncover and unlock hidden value</li>
-          <li>Surfaces potential risks buyers will flag</li>
+          <li>Provides the clarity needed to make informed decisions about the asset's future</li>
+          <li>Uncovers rollover risk, expense leakage, and untapped value opportunity</li>
+          <li>Establishes actual NOI based on verified income and expense data</li>
           <li>Underwriting that holds up to buyer scrutiny</li>
         </ul>
 
@@ -398,25 +412,23 @@
 
       <div class="card card-b">
         <span class="card-tag">Option B</span>
-        <div class="card-title">Express BOV</div>
-        <div class="card-tagline">A quick value estimate based on high-level information.</div>
+        <div class="card-title">Preliminary BOV</div>
+        <div class="card-tagline">A high-level valuation analysis based on general property information.</div>
 
-        <div class="section-label">What I'll Need From You</div>
+        <div class="section-label">Information to Submit</div>
         <ul class="checklist">
-          <li><strong>Tenant list:</strong> name of tenant, square footage of space, monthly rent, and when their lease started and ends</li>
-          <li><strong>Vacancy and renewals:</strong> note any vacant spaces, any tenants on month-to-month, and any you know are planning to leave or stay</li>
-          <li><strong>Property expenses:</strong> annual costs for real estate tax, property insurance, electric, heating fuel, water &amp; sewer, trash removal, repairs &amp; maintenance, landscaping, and snow removal</li>
-          <li><strong>Other recurring costs:</strong> property management, payroll, contract services, professional and legal, general and administrative, and leasing and advertising</li>
-          <li><strong>Tenant Paid vs Owner Paid:</strong> note which utilities and expenses are paid by the tenant, paid by you, or shared between you</li>
+          <li><strong>Occupancy summary:</strong> tenant name or suite number, square footage, monthly rent, lease start and end dates, any month-to-month tenancies, and vacant spaces</li>
+          <li><strong>Annual operating expenses:</strong> real estate taxes, insurance, electric, heating fuel, water &amp; sewer, trash removal, repairs &amp; maintenance, landscaping, and snow removal</li>
+          <li><strong>Other recurring costs:</strong> property management, payroll, contract services, and CAM reconciliations</li>
+          <li><strong>Tenant vs. owner responsibility:</strong> note which utilities and expenses are tenant-paid, owner-paid, or shared</li>
           <li><strong>Major capital improvements</strong> completed in the last 5 years (roof, HVAC, paving, etc.)</li>
         </ul>
 
         <div class="section-label">The Benefits</div>
         <ul>
-          <li>Requires only basic information to get started</li>
-          <li>Gives you a ballpark value for early decisions</li>
-          <li>Useful for testing the waters before a full process</li>
+          <li>A credible valuation estimate supported by market data</li>
           <li>Helpful for internal planning or initial conversations</li>
+          <li>No formal financials or lease documents needed to get started</li>
         </ul>
 
         <div class="tradeoff">
@@ -430,25 +442,23 @@
     <div class="info-strip">
       <div class="info-block">
         <div class="info-label">Submit Documents</div>
-        <div class="info-text">Email all information to:<br><strong>jferrandino@northeastpcg.com</strong></div>
+        <div class="info-text">Email to:<br><strong>jferrandino@northeastpcg.com</strong></div>
       </div>
       <div class="info-block">
         <div class="info-label">Confidential</div>
-        <div class="info-text">All information shared with NPCG is kept strictly confidential and handled securely.</div>
+        <div class="info-text">All information is kept strictly confidential and handled securely. An NDA is available upon request.</div>
       </div>
       <div class="info-block">
         <div class="info-label">Complimentary</div>
-        <div class="info-text">No cost or obligation to sell. Provided as a service to property owners.</div>
+        <div class="info-text">No cost or obligation to sell. Provided as a free advisory service to our clients.</div>
       </div>
     </div>
 
     <div class="footer">
       <div class="footer-left">
         <div class="footer-mark">
-          <span class="footer-monogram">NPCG</span>
-          <span class="footer-brand">Northeast Private Client Group</span>
+          <span class="footer-brand">Northeast Private Client Group®</span>
         </div>
-        <span class="footer-tagline">Building Relationships That Drive Results</span>
       </div>
       <div class="footer-right">
         <span class="footer-web">northeastpcg.com</span>
